@@ -8,8 +8,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
+            background-color: #141414;
+            margin: 0 10px;
             padding: 0;
             display: flex;
             justify-content: center;
@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
         .form-container {
-            background-color: white;
+            background-color: rgb(31, 31, 31);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -28,7 +28,7 @@
         .form-container h2 {
             margin-bottom: 20px;
             font-size: 24px;
-            color: #333;
+            color: #f5f5f5;
             text-align: center;
         }
         .form-group {
@@ -37,14 +37,15 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
-            color: #555;
+            color: #808080;
         }
         .form-group input[type="text"],
         .form-group input[type="number"],
         .form-group input[type="tel"] {
             width: 100%;
+            background: #00000000;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #ffffff17;
             border-radius: 4px;
             box-sizing: border-box;
         }
@@ -64,15 +65,15 @@
         .form-group .movie label {
             display: block;
             cursor: pointer;
-            border: 1px solid #ccc;
+            border: 1px solid #363636;
             border-radius: 4px;
             padding: 10px;
             transition: background-color 0.3s;
             max-width: 120px;
         }
         .form-group .movie input[type="checkbox"]:checked + label {
-            background-color: #d4edda;
-            border-color: #28a745;
+            background-color: #353535;
+            border-color: #ffd900;
         }
         .form-group .movie img {
             max-width: 100%;
@@ -85,8 +86,9 @@
             display: inline-block;
             width: 100%;
             padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
+            background-color: #ffd900;
+            color: black;
+            font-weight: bold;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -94,7 +96,7 @@
             box-sizing: border-box;
         }
         .form-group button:hover {
-            background-color: #0056b3;
+            background-color: #ffd900d2;
         }
 
         @media (max-width: 600px) {
@@ -132,36 +134,36 @@
                 <div class="movie">
                     <input type="checkbox" id="movie1" name="movies" value="movie1">
                     <label for="movie1">
-                        <img src="movie1.jpg" alt="Movie 1">
-                        Movie 1
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQctBB0PNPQnVKd0nkvkB0xDb2Y4RNLoxg91kmalXD8TDBRGYh" alt="Movie 1">
+                        Godzilla x Kong: The New Empire
                     </label>
                 </div>
                 <div class="movie">
                     <input type="checkbox" id="movie2" name="movies" value="movie2">
                     <label for="movie2">
-                        <img src="movie2.jpg" alt="Movie 2">
-                        Movie 2
+                        <img src="https://m.media-amazon.com/images/M/MV5BOWRkOTYzZTQtMzQwNi00NDYwLTk4NjUtN2FjYTI4Y2UzM2RjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg" alt="Movie 2">
+                        The Conjuring: The Devil Made Me Do It
                     </label>
                 </div>
                 <div class="movie">
                     <input type="checkbox" id="movie3" name="movies" value="movie3">
                     <label for="movie3">
-                        <img src="movie3.jpg" alt="Movie 3">
-                        Movie 3
+                        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQr29xT79ooN3I0Sp6hrbWFRHRyxNDUcDRNPsagAnaILIO_up4f" alt="Movie 3">
+                        Teri Baaton Mein Aisa Uljha Jiya
                     </label>
                 </div>
                 <div class="movie">
                     <input type="checkbox" id="movie4" name="movies" value="movie4">
                     <label for="movie4">
-                        <img src="movie4.jpg" alt="Movie 4">
-                        Movie 4
+                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZ-2OtLZjoU775YRqGfC3ihLqE09wKMs1P0oQGDc9spBQluMTf" alt="Movie 4">
+                        The Family Star
                     </label>
                 </div>
                 <div class="movie">
                     <input type="checkbox" id="movie5" name="movies" value="movie5">
                     <label for="movie5">
-                        <img src="movie5.jpg" alt="Movie 5">
-                        Movie 5
+                        <img src="https://m.media-amazon.com/images/M/MV5BZDY0YzI0OTctYjVhYy00MTVhLWE0NTgtYTRmYTBmOTE3YTViXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg" alt="Movie 5">
+                        Kung Fu Panda 4
                     </label>
                 </div>
             </div>
