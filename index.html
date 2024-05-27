@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Selection Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #141414;
+        }
+        button{
+            font-family: 'Roboto', sans-serif;
         }
         .form-container {
             background-color: rgb(31, 31, 31);
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
+            padding-bottom: 10px;
             max-width: 400px;
             margin: 10px auto;
         }
@@ -197,7 +202,7 @@
 }
 
 #movieSummaryTable td:first-child {
-    background-color: #5a5a5a; /* Different color for the first column */
+    background-color: #5a5a5a; 
 }
 
 
@@ -229,6 +234,94 @@
 }
 
 
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: rgb(31, 31, 31);
+    color: white;
+    padding: 20px;
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.modal-content button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffd900;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.contact-number {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+}
+.whatsapp-button {
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 100%;
+    background-color: #25d366; /* WhatsApp green color */
+    color: white;
+    max-width: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    text-align: left;
+}
+.whatsapp-button i {
+    margin-right: 10px;
+}
+
+.support-section{
+    border: 1px solid rgb(57, 57, 57);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.support-section p{
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+.support-section a{
+    color: white;
+    opacity: .5;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
 
     </style>
 </head>
@@ -276,15 +369,8 @@
                     <div class="movie">
                         <input type="checkbox" id="movie2" name="movies" value="movie2">
                         <label for="movie2">
-                            <img src="https://m.media-amazon.com/images/M/MV5BOWRkOTYzZTQtMzQwNi00NDYwLTk4NjUtN2FjYTI4Y2UzM2RjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg" alt="Movie 2">
-                            The Conjuring: The Devil Made Me Do It
-                        </label>
-                    </div>
-                    <div class="movie">
-                        <input type="checkbox" id="movie3" name="movies" value="movie3">
-                        <label for="movie3">
-                            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQr29xT79ooN3I0Sp6hrbWFRHRyxNDUcDRNPsagAnaILIO_up4f" alt="Movie 3">
-                            Teri Baaton Mein Aisa Uljha Jiya
+                            <img src="https://upload.wikimedia.org/wikipedia/en/9/90/Annabelle_film_poster.jpg" alt="Movie 2">
+                            Annabelle: 2014
                         </label>
                     </div>
                     <div class="movie">
@@ -292,6 +378,13 @@
                         <label for="movie4">
                             <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZ-2OtLZjoU775YRqGfC3ihLqE09wKMs1P0oQGDc9spBQluMTf" alt="Movie 4">
                             The Family Star
+                        </label>
+                    </div>
+                    <div class="movie">
+                        <input type="checkbox" id="movie3" name="movies" value="movie3">
+                        <label for="movie3">
+                            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQr29xT79ooN3I0Sp6hrbWFRHRyxNDUcDRNPsagAnaILIO_up4f" alt="Movie 3">
+                            Teri Baaton Mein Aisa Uljha Jiya
                         </label>
                     </div>
                     <div class="movie">
@@ -339,6 +432,23 @@
             <button type="submit" class="submit-button" id="submitButton">Place Order</button>
         </div>
     </form>
+    </div>
+
+    <div class="support-section">
+        <p>Help and Support</p>
+        <div class="contact-number">
+            <button class="whatsapp-button" onclick="openInNewWindow('https://wa.me/94710546083');">
+                <i class="fab fa-whatsapp"></i> Charith 071 054 6083
+            </button>
+        </div>
+    
+        <div class="contact-number">
+            <button class="whatsapp-button" onclick="openInNewWindow('https://wa.me/94720660672');">
+                <i class="fab fa-whatsapp"></i> Kulanjith 072 066 0672
+            </button>
+        </div>
+
+        <a href="https://wa.me/94742252514" target="_blank">Technical Help: @Santhushd</a>
     </div>
 </div>
 
@@ -393,69 +503,111 @@
     });
 });
 
+
+function openInNewWindow(url) {
+    window.open(url, "_blank");
+}
+
 const loadingOverlay = document.getElementById('loadingOverlay');
 const errorMessage = document.getElementById('errorMessage');
+
+
+
+
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Check if there are no selected movies
     const selectedMovieCheckboxes = document.querySelectorAll('.movie input[type="checkbox"]:checked');
     if (selectedMovieCheckboxes.length === 0) {
         errorMessage.textContent = 'Please select at least one movie.';
         errorMessage.style.display = 'block';
 
-        // Scroll to the "Select Movies" section
         const moviesSection = document.querySelector('.form-group.movies-wrapper');
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        return; // Stop form submission
+        return; 
     }
 
-    // Hide error message if there are selected movies
     errorMessage.style.display = 'none';
 
-    // Show loading overlay
     loadingOverlay.style.display = 'flex';
 
     const formData = new FormData(form);
 
-    // Get the ticket count and add it to the form data
     const ticketCount = document.getElementById('ticket-count').value;
     formData.set('ticket_count', ticketCount);
 
-    // Get the total cost and add it to the form data
     const totalCost = document.getElementById('totalCostText').textContent;
-    formData.set('total_cost', totalCost.trim()); // Remove any leading/trailing spaces
+    formData.set('total_cost', totalCost.trim()); 
 
-    // Get the value of the hidden input field and add it to the form data
     const hiddenValue = document.getElementById('theUniqueID').value;
     formData.set('hidden_input', hiddenValue);
 
-    // Convert selected movies array to a comma-separated string
     const selectedMovies = [];
     selectedMovieCheckboxes.forEach(movie => {
         selectedMovies.push(movie.value);
     });
     formData.set('selected_movies', selectedMovies.join(', '));
 
-    // Fetch scriptURL with the updated form data
     try {
         const response = await fetch(scriptURL, { method: 'POST', body: formData });
         if (response.ok) {
-            alert('Order placed successfully!');
-            form.reset(); // Clear the form after successful submission
+            displaySuccessModal(hiddenValue);
+            form.reset(); 
         } else {
             throw new Error('Failed to place order.');
         }
     } catch (error) {
-        console.error('Error:', error.message);
         alert('Failed to place order. Please try again later.');
     } finally {
-        // Hide loading overlay
         loadingOverlay.style.display = 'none';
     }
 });
+
+function displaySuccessModal(uniqueID) {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order ID is: <strong><span id="copyInput">${uniqueID}</span></strong></p>
+            <button onclick="copyOrderID()">Copy ID</button>
+            <button class="closeButton">OK</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+
+    const closeButton = modal.querySelector('.closeButton');
+    closeButton.addEventListener('click', () => {
+        document.body.removeChild(modal);
+    });
+}
+
+
+
+function copyOrderID() {
+    var copyText = document.getElementById("copyInput");
+  
+    // Create a range object
+    var range = document.createRange();
+    range.selectNode(copyText);
+  
+    // Select the range
+    window.getSelection().removeAllRanges(); // Clear any existing selection
+    window.getSelection().addRange(range);
+  
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+  
+    // Alert the user that the text has been copied
+    alert("Order ID Copied: " + copyText.textContent);
+} 
+
+
+
+
 
 
 
@@ -476,45 +628,44 @@ form.addEventListener('submit', async (e) => {
             } else {
                 selectedMoviesCount--;
             }
-            console.log('Number of selected movies:', selectedMoviesCount);
+            //console.log('Number of selected movies:', selectedMoviesCount);
             displayTotalCost();
         });
     });
 
 
-    // Array to store the selected movies
 let selectedMovies = [];
 
-// Function to update the selected movies array and the movie summary table
+
 function updateSelectedMovies() {
-    selectedMovies = []; // Reset the selected movies array
+    selectedMovies = []; 
     const selectedMovieLabels = document.querySelectorAll('.movie input[type="checkbox"]:checked + label');
     selectedMovieLabels.forEach(label => {
-        selectedMovies.push(label.textContent.trim()); // Add the movie name to the array
+        selectedMovies.push(label.textContent.trim()); 
     });
-    console.log('Selected Movies:', selectedMovies);
-    updateMovieSummary(selectedMovies); // Update the movie summary table
+    //console.log('Selected Movies:', selectedMovies);
+    updateMovieSummary(selectedMovies); 
 }
 
-// Event listener for movie checkboxes
+
 movieCheckboxes.forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-        updateSelectedMovies(); // Update the selected movies array
-        displayTotalCost(); // Update the total cost display
+        updateSelectedMovies(); 
+        displayTotalCost(); 
     });
 });
 
 
     const updateTicketCount = () => {
         ticketCount = parseInt(ticketCountInput.value);
-        console.log('Ticket count:', ticketCount);
+        //console.log('Ticket count:', ticketCount);
         displayTotalCost();
     };
 
     increaseButton.addEventListener('click', () => {
         ticketCountInput.value = parseInt(ticketCountInput.value) + 1;
         ticketCount = parseInt(ticketCountInput.value);
-        console.log('Ticket count:', ticketCount);
+        //console.log('Ticket count:', ticketCount);
         displayTotalCost();
     });
 
@@ -522,7 +673,7 @@ movieCheckboxes.forEach(checkbox => {
         if (ticketCountInput.value > 1) {
             ticketCountInput.value = parseInt(ticketCountInput.value) - 1;
             ticketCount = parseInt(ticketCountInput.value);
-            console.log('Ticket count:', ticketCount);
+            //console.log('Ticket count:', ticketCount);
             displayTotalCost();
         }
     });
@@ -540,26 +691,25 @@ function displayTotalCost() {
 }
 
 
-// Function to update the movie summary table with selected movies and show times
 function updateMovieSummary(selectedMovies) {
     const tableBody = document.querySelector('#movieSummaryTable tbody');
-    tableBody.innerHTML = ''; // Clear existing rows
+    tableBody.innerHTML = ''; 
     
-    // Assuming show times are stored in a JavaScript object
+    
     const showTimes = {
-        'Godzilla x Kong: The New Empire': '8:00 PM | May 22nd Tuesday',
-        'The Conjuring: The Devil Made Me Do It': '8:00 PM | May 22nd Tuesday',
-        'Teri Baaton Mein Aisa Uljha Jiya': '8:00 PM | May 22nd Tuesday',
-        'The Family Star': '8:00 PM | May 22nd Tuesday',
-        'Kung Fu Panda 4': '8:00 PM | May 22nd Tuesday',
+        'Godzilla x Kong: The New Empire': '11.30 AM | June 04th Tuesday',
+        'Annabelle: 2014': '9.30 AM | June 04th Tuesday',
+        'Teri Baaton Mein Aisa Uljha Jiya': '11.30 AM | June 05th Wednesday',
+        'The Family Star': '2.00 PM | June 04th Tuesday',
+        'Kung Fu Panda 4': '9.30 AM | June 05th Wednesday',
         
-        // Add show times for other movies here
+        
     };
 
     selectedMovies.forEach(movie => {
-        const showTime = showTimes[movie]; // Get the show time for the movie
+        const showTime = showTimes[movie]; 
 
-        if (showTime) { // Check if show time exists
+        if (showTime) { 
             const row = document.createElement('tr');
             const movieNameCell = document.createElement('td');
             const showTimeCell = document.createElement('td');
@@ -579,25 +729,21 @@ submitButton.addEventListener('click', createUniqueID);
 
 function createUniqueID()
 {
-    // Get the current date and time
+    
 var now = new Date();
 
-// Create a unique ID using the current date and time
+
 var uniqueID = `${now.getFullYear()}${(now.getMonth() + 1).toString().padStart(2, '0')}${now.getDate().toString().padStart(2, '0')}${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}${now.getMilliseconds().toString().padStart(3, '0')}`;
 
-// Set the generated unique ID as the value of the hidden input field
+
 document.getElementById('theUniqueID').value = uniqueID;
-console.log(uniqueID);
+//console.log(uniqueID);
 
 }
 
 
 
-// Usage:
-// Call updateMovieSummary(selectedMovies) with the array of selected movies
-// Example:
-// const selectedMovies = ['Godzilla x Kong', 'The Conjuring'];
-// updateMovieSummary(selectedMovies);
+
 
 
 
